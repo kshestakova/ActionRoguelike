@@ -25,11 +25,16 @@ protected:
 	void MoveForward(float Value);
 	void MoveRight(float Value);
 
+	void PrimaryAttack();
+
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* CameraComp;
 
 	UPROPERTY(VisibleAnywhere)
 	USpringArmComponent* SpringArmComp;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> ProjectileClass;
 
 
 public:	
