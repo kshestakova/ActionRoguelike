@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "SInteractionComponent.h"
 #include "SCharacter.generated.h"
 
 class UCameraComponent;
@@ -26,6 +27,7 @@ protected:
 	void MoveRight(float Value);
 
 	void PrimaryAttack();
+	void PrimaryInteract();
 
 	UPROPERTY(VisibleAnywhere)
 	UCameraComponent* CameraComp;
@@ -36,6 +38,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> ProjectileClass;
 
+	UPROPERTY(EditAnywhere)
+	USInteractionComponent* InteractionComp;
 
 public:	
 	// Called every frame
