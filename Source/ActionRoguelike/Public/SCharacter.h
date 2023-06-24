@@ -9,6 +9,7 @@
 
 class UCameraComponent;
 class USpringArmComponent; 
+class UAnimMontage;
 
 UCLASS()
 class ACTIONROGUELIKE_API ASCharacter : public ACharacter
@@ -36,10 +37,16 @@ protected:
 	USpringArmComponent* SpringArmComp;
 
 	UPROPERTY(EditAnywhere)
+	USInteractionComponent* InteractionComp;
+
+	UPROPERTY(EditAnywhere, Category = "Attack")
 	TSubclassOf<AActor> ProjectileClass;
 
-	UPROPERTY(EditAnywhere)
-	USInteractionComponent* InteractionComp;
+	UPROPERTY(EditAnywhere, Category = "Attack")
+	UAnimMontage* AttackAnim;
+
+	UPROPERTY(EditAnywhere, Category = "Attack")
+	FTimerHandle TimerHandle_PrimaryAttack; 
 
 public:	
 	// Called every frame
@@ -47,5 +54,7 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void PrimaryAttack_TimeElapsed();
 
 };
