@@ -6,7 +6,6 @@
 void ASItemChest::Interact_Implementation(APawn* InstigatorPawn)
 {
 	LidMesh->SetRelativeRotation(FRotator(TargetPitch, 0, 0));
-	TargetPitch = 110.0f;
 }
 
 // Sets default values
@@ -20,6 +19,7 @@ ASItemChest::ASItemChest()
 
 	LidMesh = CreateDefaultSubobject<UStaticMeshComponent>("LidMesh");
 	LidMesh->SetupAttachment(BaseMesh);
+	TargetPitch = 110.0f;
 }
 
 // Called when the game starts or when spawned
