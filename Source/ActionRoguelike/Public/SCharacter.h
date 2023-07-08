@@ -5,11 +5,13 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "SInteractionComponent.h"
+#include "SAttributeComponent.h"
 #include "SCharacter.generated.h"
 
 class UCameraComponent;
 class USpringArmComponent; 
 class UAnimMontage;
+class USAttributeComponent;
 
 UCLASS()
 class ACTIONROGUELIKE_API ASCharacter : public ACharacter
@@ -30,13 +32,13 @@ protected:
 	void PrimaryAttack();
 	void PrimaryInteract();
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UCameraComponent* CameraComp;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USpringArmComponent* SpringArmComp;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = "Components")
 	USInteractionComponent* InteractionComp;
 
 	UPROPERTY(EditAnywhere, Category = "Attack")
@@ -47,6 +49,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Attack")
 	FTimerHandle TimerHandle_PrimaryAttack; 
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
+	USAttributeComponent* AttributeComp;
 
 public:	
 	// Called every frame

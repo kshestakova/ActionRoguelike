@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "SAttributeComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "SMagicProjectile.generated.h"
@@ -31,6 +32,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	UProjectileMovementComponent* MovementComp;
+	
+	UFUNCTION()
+	void OnActorOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 public:	
 	// Called every frame
