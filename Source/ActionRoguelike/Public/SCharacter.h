@@ -32,6 +32,8 @@ protected:
 	void PrimaryAttack();
 	void PrimaryInteract();
 
+	virtual void PostInitializeComponents() override;
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UCameraComponent* CameraComp;
 
@@ -62,4 +64,6 @@ public:
 
 	void PrimaryAttack_TimeElapsed();
 
+	UFUNCTION()
+	void OnHealthChanged(AActor* InstigatorActor, USAttributeComponent* OwningComp, float NewHealth, float Delta);
 };
